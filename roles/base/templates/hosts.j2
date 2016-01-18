@@ -1,0 +1,17 @@
+127.0.0.1 localhost
+
+192.168.99.100 lb
+
+{% set count = 0 %}
+{% for node in play_hosts|sort %}
+{% if node == 'lb' %}
+
+{% else %}
+192.168.99.1{{ count }} {{ node }}
+{% endif %}
+
+{% set count = count + 1 %}
+{% endfor %}
+
+#192.168.99.12 web2
+#192.168.99.13 web3

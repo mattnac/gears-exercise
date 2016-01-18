@@ -1,0 +1,5 @@
+upstream webapp {
+	 {% for node in play_hosts %}
+	 "server {{ node }};"
+	 {% endfor %}
+}

@@ -1,0 +1,14 @@
+---
+- name: Update apt
+  apt: update_cache=yes cache_valid_time=86400
+
+- name: Install Nginx
+  apt:
+    pkg: nginx
+    state: latest
+
+- template: src=upstream.conf.j2 dest=/etc/nginx/conf.d/upstream.conf
+  when: inventory_hostname == "lb"
+
+- template: src=hosts.j2 dest=/etc/hosts
+

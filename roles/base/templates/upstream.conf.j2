@@ -1,0 +1,9 @@
+upstream webapp {
+	 {% for node in play_hosts|sort %}
+	 {% if node == "lb" %}
+	    
+	 {% else %}
+	 server "{{ node }}";
+	 {% endif %}
+	 {% endfor %}
+}
