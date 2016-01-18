@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
   NO_OF_NODES = 3
   (1..NO_OF_NODES).each do |id|
     config.vm.define "web#{id}" do |server|
-      server.vm.network :private_network, ip: "192.168.99.#{10+id}"
+      server.vm.network :private_network, ip: "192.168.99.#{100+id}"
       server.vm.hostname = "web#{id}"
       if id == NO_OF_NODES
         server.vm.provision "ansible" do |ansible|

@@ -2,12 +2,12 @@
 
 192.168.99.100 lb
 
-{% set count = 0 %}
+{% set count = 100 %}
 {% for node in play_hosts|sort %}
 {% if node == 'lb' %}
 
 {% else %}
-192.168.99.1{{ count }} {{ node }}
+192.168.99.{{ count }} {{ node }}
 {% endif %}
 
 {% set count = count + 1 %}
